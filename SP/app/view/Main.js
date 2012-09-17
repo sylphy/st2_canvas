@@ -23,7 +23,8 @@ Ext.define("SP.view.Main", {
             text: 'draw'
           },{
             xtype: 'button',
-            text: '---'
+            id: 'initButton',
+            text: 'init'
           }
         ]
       },
@@ -34,11 +35,6 @@ Ext.define("SP.view.Main", {
         flex: 1,
         lock: false,
         indicator: false,
-        defaults: {
-          styleHtmlContent: true,
-          width: 600,
-          height: 450
-        },
         items: [
           {
             xtype: 'drawPanel',

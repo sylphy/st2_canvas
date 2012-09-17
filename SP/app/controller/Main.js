@@ -3,12 +3,17 @@ Ext.define('SP.controller.Main', {
   config: {
     refs: {
       mainPanel: '#mainPanel',
+      initButton: '#initButton',
       drawButton: '#drawButton',
-      carousel: '#carousel'
+      carousel: '#carousel',
+      drawPanel: 'drawPanel'
     },
     control: {
       drawButton: {
         tap: 'toggleDrawMode'
+      },
+      initButton: {
+        tap: 'initDrawPanel'
       }
     }
   },
@@ -31,6 +36,7 @@ Ext.define('SP.controller.Main', {
       button.setUi('confirm');
       carousel.setLock(true);
     }
+  },
+  initDrawPanel: function() {
   }
-  
 });

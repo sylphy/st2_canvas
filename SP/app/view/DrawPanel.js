@@ -20,11 +20,8 @@ Ext.define('SP.view.DrawPanel', {
     ]
   },
   initialize: function() {
-    // set src to img element
+    // set 'src' to <img>
     this.getAt(0).setSrc(this.getImgSrc());
-
-    var canvas = this.getAt(1).canvas.dom;
-    canvas.style.width = this.getWidth() + 'px';
-    canvas.style.height = this.getHeight() + 'px';
   }
+  
 });

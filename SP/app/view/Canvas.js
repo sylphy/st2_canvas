@@ -8,8 +8,13 @@ Ext.define('SP.view.Canvas', {
       className: Ext.baseCSSPrefix + 'canvas'
     }
   ],
+  config: {
+    canvasWidth: 320,
+    canvasHeight: 240
+  },
   initialize: function() {
-    // canvas要素のイベントをPanelのイベントに紐付ける
+
+    // canvas要素のイベントをこのCanvasコンポーネントのイベントに紐付ける
     this.canvas.on({
       tap: 'onTap',
       touchstart: 'onTouchStart',
@@ -17,12 +22,21 @@ Ext.define('SP.view.Canvas', {
       touchmove: 'onTouchMove',
       scope: this
     });
+
+    // canvas要素の座標サイズ設定
+    console.debug('canvas initialize', this, this._canvasWidth, this._canvasHeight);
+
     var canvasElement = this.canvas.dom;
-    canvasElement.width = 320;
-    canvasElement.height = 240;
+    canvasElement.width = this._canvasWidth;
+    canvasElement.height = this._canvasHeight;
+
+    canvasElement.style.width = '100%';
+    canvasElement.style.height = '100%';
+
+    // canvas内容の初期化
     var context = canvasElement.getContext('2d');
     context.moveTo(0, 0);
-    context.lineTo(320, 240);
+    context.lineTo(this._canvasWidth, this._canvasHeight);
     context.stroke();
   },
   onTap:function(e) {
